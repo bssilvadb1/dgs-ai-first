@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1300" viewBox="0 0 1800 1300" style="background:#f8f7f4; font-family: 'Segoe UI', Arial, sans-serif;">
+
+  <rect width="1800" height="1300" fill="#f8f7f4"/>
+
+  <!-- Título -->
+  <text x="900" y="44" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a18">Mapa de temas e gaps — NovaTech</text>
+  <text x="900" y="66" text-anchor="middle" font-size="12" fill="#888">Análise da documentação disponível · Projeto assistente de IA</text>
+  <line x1="100" y1="80" x2="1700" y2="80" stroke="#ddd" stroke-width="1"/>
+
+  <!--
+    LAYOUT PLANEJADO — centro em (900, 600)
+
+    RAMO 1 — Frete especial        → cima-esquerda   nó em (340, 270)
+      sub A: Versão vigente?        → (100, 390)
+      sub B: Desconto por volume    → (340, 390)
+
+    RAMO 2 — Carga perigosa        → cima-centro      nó em (730, 160)
+      sub A: PROC-043 ausente       → (530, 100)   [deslocado para não colidir]
+      sub B: Exceção sem proc.      → (770, 100)   [deslocado para não colidir]
+
+    RAMO 3 — Devolução             → cima-direita     nó em (1280, 220)
+      sub A: Prazo 7 dias          → (1060, 140)
+      sub B: Custo por resp.       → (1320, 140)
+
+    RAMO 4 — SLA e tiers          → direita           nó em (1460, 560)
+      sub A: Gold/Silver/Standard  → (1460, 690)
+      sub B: "Platinum" no FAQ     → (1240, 690)
+
+    RAMO 5 — FAQ atendimento      → baixo-direita     nó em (1280, 900)
+      sub A: Sem responsável       → (1360, 1040)
+      sub B: Conflito c/ oficiais  → (1080, 1040)
+
+    RAMO 6 — Temas sem cobertura  → baixo-centro      nó em (750, 980)
+      sub A: Seguro de carga       → (480, 1100)
+      sub B: Rastreamento          → (750, 1100)
+      sub C: Desconto ad hoc       → (1020, 1100)
+
+    RAMO 7 — Governança           → esquerda          nó em (240, 600)
+      sub A: Sem índice vigência   → (60, 730)
+      sub B: Fallback indefinido   → (280, 730)
+
+    RAMO 8 — Regras transitórias  → baixo-esquerda    nó em (340, 880)
+      sub A: Expiradas dez/2023    → (120, 980)
+  -->
+
+  <!-- ══════════════════════════════════════════
+       CONECTORES (desenhados antes dos nós)
+  ══════════════════════════════════════════ -->
+
+  <!-- Centro → Ramo 1 -->
+  <line x1="834" y1="577" x2="460" y2="296" stroke="#8b7ed8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Centro → Ramo 2 -->
+  <line x1="870" y1="576" x2="800" y2="212" stroke="#e24b4a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Centro → Ramo 3 -->
+  <line x1="966" y1="577" x2="1190" y2="272" stroke="#1d9e75" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Centro → Ramo 4 -->
+  <line x1="1000" y1="610" x2="1380" y2="585" stroke="#378add" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Centro → Ramo 5 -->
+  <line x1="960" y1="640" x2="1190" y2="878" stroke="#d85a30" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Centro → Ramo 6 -->
+  <line x1="880" y1="642" x2="820" y2="958" stroke="#e24b4a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Centro → Ramo 7 -->
+  <line x1="834" y1="610" x2="430" y2="610" stroke="#534ab7" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Centro → Ramo 8 -->
+  <line x1="840" y1="640" x2="520" y2="878" stroke="#ba7517" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Ramo 1 → subs -->
+  <line x1="360" y1="322" x2="200" y2="388" stroke="#e24b4a" stroke-width="1"/>
+  <line x1="400" y1="322" x2="400" y2="388" stroke="#ba7517" stroke-width="1"/>
+
+  <!-- Ramo 2 → subs -->
+  <line x1="750" y1="160" x2="640" y2="152" stroke="#e24b4a" stroke-width="1"/>
+  <line x1="810" y1="160" x2="880" y2="152" stroke="#ba7517" stroke-width="1"/>
+
+  <!-- Ramo 3 → subs -->
+  <line x1="1230" y1="220" x2="1160" y2="186" stroke="#1d9e75" stroke-width="1"/>
+  <line x1="1330" y1="220" x2="1400" y2="186" stroke="#1d9e75" stroke-width="1"/>
+
+  <!-- Ramo 4 → subs -->
+  <line x1="1500" y1="612" x2="1540" y2="686" stroke="#378add" stroke-width="1"/>
+  <line x1="1440" y1="612" x2="1340" y2="686" stroke="#e24b4a" stroke-width="1"/>
+
+  <!-- Ramo 5 → subs -->
+  <line x1="1360" y1="930" x2="1420" y2="1036" stroke="#e24b4a" stroke-width="1"/>
+  <line x1="1270" y1="930" x2="1170" y2="1036" stroke="#e24b4a" stroke-width="1"/>
+
+  <!-- Ramo 6 → subs -->
+  <line x1="750" y1="1032" x2="580" y2="1096" stroke="#e24b4a" stroke-width="1"/>
+  <line x1="820" y1="1032" x2="820" y2="1096" stroke="#e24b4a" stroke-width="1"/>
+  <line x1="880" y1="1032" x2="1040" y2="1096" stroke="#ba7517" stroke-width="1"/>
+
+  <!-- Ramo 7 → subs -->
+  <line x1="270" y1="652" x2="180" y2="726" stroke="#e24b4a" stroke-width="1"/>
+  <line x1="340" y1="652" x2="380" y2="726" stroke="#e24b4a" stroke-width="1"/>
+
+  <!-- Ramo 8 → sub -->
+  <line x1="410" y1="930" x2="280" y2="976" stroke="#ba7517" stroke-width="1"/>
+
+  <!-- ══════════════════════════════════════════
+       NÓ CENTRAL
+  ══════════════════════════════════════════ -->
+  <rect x="800" y="570" width="200" height="60" rx="12" fill="#2c2c2a"/>
+  <text x="900" y="595" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Documentação</text>
+  <text x="900" y="614" text-anchor="middle" font-size="11" fill="#aaaaaa">NovaTech · 5 docs</text>
+
+  <!-- ══════════════════════════════════════════
+       RAMO 1 — FRETE ESPECIAL  (cima-esquerda)
+       nó: x=220 w=280 → cx=360  y=248 h=50
+  ══════════════════════════════════════════ -->
+  <rect x="220" y="248" width="280" height="52" rx="9" fill="#eeedfe" stroke="#8b7ed8" stroke-width="1.5"/>
+  <text x="360" y="269" text-anchor="middle" font-size="13" font-weight="700" fill="#3c3489">Cálculo de frete especial</text>
+  <text x="360" y="287" text-anchor="middle" font-size="10" fill="#534ab7">PROC-042 v1 · PROC-042 v2 · FAQ</text>
+
+  <!-- sub A: Versão vigente  x=60 w=280 → cx=200  y=388 h=46 -->
+  <rect x="60" y="388" width="280" height="46" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.2"/>
+  <text x="200" y="407" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">⚠ Versão vigente indefinida</text>
+  <text x="200" y="423" text-anchor="middle" font-size="10" fill="#a32d2d">v1 e v2 coexistem sem hierarquia</text>
+
+  <!-- sub B: Desconto volume  x=260 w=270 → cx=395  y=388 h=46 -->
+  <rect x="260" y="388" width="270" height="46" rx="7" fill="#faeeda" stroke="#ba7517" stroke-width="1.2"/>
+  <text x="395" y="407" text-anchor="middle" font-size="12" font-weight="700" fill="#854f0b">Desconto por volume</text>
+  <text x="395" y="423" text-anchor="middle" font-size="10" fill="#854f0b">Somente em PROC-042 v2</text>
+
+  <!-- ══════════════════════════════════════════
+       RAMO 2 — CARGA PERIGOSA (topo centro)
+       nó: x=620 w=260 → cx=750  y=138 h=52
+  ══════════════════════════════════════════ -->
+  <rect x="620" y="138" width="260" height="52" rx="9" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.5"/>
+  <text x="750" y="159" text-anchor="middle" font-size="13" font-weight="700" fill="#a32d2d">Carga perigosa</text>
+  <text x="750" y="177" text-anchor="middle" font-size="10" fill="#a32d2d">FAQ · POL-001 · PROC-042 v1</text>
+
+  <!-- sub A: PROC-043 ausente  x=400 w=240 → cx=520  y=94 h=46 -->
+  <rect x="400" y="94" width="240" height="46" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.5"/>
+  <text x="520" y="113" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">⚠ PROC-043 não consta</text>
+  <text x="520" y="129" text-anchor="middle" font-size="10" fill="#a32d2d">Gap crítico — sem proc. dedicado</text>
+
+  <!-- sub B: Exceção sem detalhamento  x=660 w=260 → cx=790  y=94 h=46 -->
+  <rect x="660" y="94" width="260" height="46" rx="7" fill="#faeeda" stroke="#ba7517" stroke-width="1.2"/>
+  <text x="790" y="113" text-anchor="middle" font-size="12" font-weight="700" fill="#854f0b">Exceção no prazo (POL-001)</text>
+  <text x="790" y="129" text-anchor="middle" font-size="10" fill="#854f0b">Sem procedimento próprio</text>
+
+  <!-- ══════════════════════════════════════════
+       RAMO 3 — DEVOLUÇÃO (cima-direita)
+       nó: x=1060 w=260 → cx=1190  y=248 h=52
+  ══════════════════════════════════════════ -->
+  <rect x="1060" y="248" width="260" height="52" rx="9" fill="#e1f5ee" stroke="#1d9e75" stroke-width="1.5"/>
+  <text x="1190" y="269" text-anchor="middle" font-size="13" font-weight="700" fill="#085041">Política de devolução</text>
+  <text x="1190" y="287" text-anchor="middle" font-size="10" fill="#0f6e56">POL-001 · FAQ</text>
+
+  <!-- sub A: Prazo geral  x=960 w=240 → cx=1080  y=138 h=46 -->
+  <rect x="960" y="138" width="240" height="46" rx="7" fill="#e1f5ee" stroke="#1d9e75" stroke-width="1.2"/>
+  <text x="1080" y="157" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">Prazo geral: 7 dias úteis</text>
+  <text x="1080" y="173" text-anchor="middle" font-size="10" fill="#0f6e56">POL-001 v3.1 (normativo)</text>
+
+  <!-- sub B: Custo por responsável  x=1220 w=260 → cx=1350  y=138 h=46 -->
+  <rect x="1220" y="138" width="260" height="46" rx="7" fill="#e1f5ee" stroke="#1d9e75" stroke-width="1.2"/>
+  <text x="1350" y="157" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">Custo por responsável</text>
+  <text x="1350" y="173" text-anchor="middle" font-size="10" fill="#0f6e56">Erro NovaTech = sem custo</text>
+
+  <!-- ══════════════════════════════════════════
+       RAMO 4 — SLA E TIERS (direita)
+       nó: x=1380 w=220 → cx=1490  y=560 h=52
+  ══════════════════════════════════════════ -->
+  <rect x="1380" y="560" width="220" height="52" rx="9" fill="#e6f1fb" stroke="#378add" stroke-width="1.5"/>
+  <text x="1490" y="581" text-anchor="middle" font-size="13" font-weight="700" fill="#0c447c">SLA e tiers de cliente</text>
+  <text x="1490" y="599" text-anchor="middle" font-size="10" fill="#185fa5">SLA-2024 · FAQ</text>
+
+  <!-- sub A: Tiers oficiais  x=1380 w=240 → cx=1500  y=686 h=46 -->
+  <rect x="1380" y="686" width="260" height="46" rx="7" fill="#e6f1fb" stroke="#378add" stroke-width="1.2"/>
+  <text x="1510" y="705" text-anchor="middle" font-size="12" font-weight="700" fill="#0c447c">Gold · Silver · Standard</text>
+  <text x="1510" y="721" text-anchor="middle" font-size="10" fill="#185fa5">Critério: volume + valor contrato</text>
+
+  <!-- sub B: Platinum inexistente  x=1160 w=260 → cx=1290  y=686 h=46 -->
+  <rect x="1160" y="686" width="260" height="46" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.2"/>
+  <text x="1290" y="705" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">⚠ "Platinum" no FAQ</text>
+  <text x="1290" y="721" text-anchor="middle" font-size="10" fill="#a32d2d">Tier não existe em SLA-2024</text>
+
+  <!-- ══════════════════════════════════════════
+       RAMO 5 — FAQ ATENDIMENTO (baixo-direita)
+       nó: x=1180 w=260 → cx=1310  y=878 h=52
+  ══════════════════════════════════════════ -->
+  <rect x="1180" y="878" width="260" height="52" rx="9" fill="#faece7" stroke="#d85a30" stroke-width="1.5"/>
+  <text x="1310" y="899" text-anchor="middle" font-size="13" font-weight="700" fill="#712b13">FAQ de atendimento</text>
+  <text x="1310" y="917" text-anchor="middle" font-size="10" fill="#993c1d">Documento informal · não validado</text>
+
+  <!-- sub A: Sem responsável  x=1300 w=250 → cx=1425  y=1036 h=46 -->
+  <rect x="1300" y="1036" width="260" height="46" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.2"/>
+  <text x="1430" y="1055" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">⚠ Sem responsável formal</text>
+  <text x="1430" y="1071" text-anchor="middle" font-size="10" fill="#a32d2d">Mantido informalmente pelo time</text>
+
+  <!-- sub B: Conflito c/ oficiais  x=1000 w=280 → cx=1140  y=1036 h=46 -->
+  <rect x="1000" y="1036" width="280" height="46" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.2"/>
+  <text x="1140" y="1055" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">⚠ Conflito c/ docs oficiais</text>
+  <text x="1140" y="1071" text-anchor="middle" font-size="10" fill="#a32d2d">FAQ vs POL-001 · PROC-042 v2 · SLA</text>
+
+  <!-- ══════════════════════════════════════════
+       RAMO 6 — TEMAS SEM COBERTURA (baixo-centro)
+       nó: x=620 w=260 → cx=750  y=958 h=52
+  ══════════════════════════════════════════ -->
+  <rect x="620" y="958" width="260" height="52" rx="9" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.5"/>
+  <text x="750" y="979" text-anchor="middle" font-size="13" font-weight="700" fill="#a32d2d">⚠ Temas sem cobertura</text>
+  <text x="750" y="997" text-anchor="middle" font-size="10" fill="#a32d2d">FAQ menciona · sem doc oficial</text>
+
+  <!-- sub A: Seguro de carga  x=380 w=220 → cx=490  y=1096 h=44 -->
+  <rect x="380" y="1096" width="220" height="44" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.2"/>
+  <text x="490" y="1114" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">Seguro de carga</text>
+  <text x="490" y="1130" text-anchor="middle" font-size="10" fill="#a32d2d">FAQ item 22 — nenhum doc</text>
+
+  <!-- sub B: Rastreamento  x=620 w=220 → cx=730  y=1096 h=44 -->
+  <rect x="620" y="1096" width="220" height="44" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.2"/>
+  <text x="730" y="1114" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">Rastreamento / tracking</text>
+  <text x="730" y="1130" text-anchor="middle" font-size="10" fill="#a32d2d">FAQ item 27 — nenhum doc</text>
+
+  <!-- sub C: Desconto ad hoc  x=860 w=240 → cx=980  y=1096 h=44 -->
+  <rect x="860" y="1096" width="240" height="44" rx="7" fill="#faeeda" stroke="#ba7517" stroke-width="1.2"/>
+  <text x="980" y="1114" text-anchor="middle" font-size="12" font-weight="700" fill="#854f0b">Desconto no frete (ad hoc)</text>
+  <text x="980" y="1130" text-anchor="middle" font-size="10" fill="#854f0b">FAQ item 45 — apenas PROC-042 v2</text>
+
+  <!-- ══════════════════════════════════════════
+       RAMO 7 — GOVERNANÇA (esquerda)
+       nó: x=160 w=270 → cx=295  y=580 h=52
+  ══════════════════════════════════════════ -->
+  <rect x="160" y="580" width="270" height="52" rx="9" fill="#eeedfe" stroke="#8b7ed8" stroke-width="1.5"/>
+  <text x="295" y="601" text-anchor="middle" font-size="13" font-weight="700" fill="#3c3489">Governança documental</text>
+  <text x="295" y="619" text-anchor="middle" font-size="10" fill="#534ab7">Todos os documentos</text>
+
+  <!-- sub A: Sem índice vigência  x=40 w=250 → cx=165  y=726 h=46 -->
+  <rect x="40" y="726" width="250" height="46" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.2"/>
+  <text x="165" y="745" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">⚠ Sem índice de vigência</text>
+  <text x="165" y="761" text-anchor="middle" font-size="10" fill="#a32d2d">Priorização indefinida</text>
+
+  <!-- sub B: Fallback indefinido  x=300 w=240 → cx=420  y=726 h=46 -->
+  <rect x="300" y="726" width="240" height="46" rx="7" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.2"/>
+  <text x="420" y="745" text-anchor="middle" font-size="12" font-weight="700" fill="#a32d2d">⚠ Fallback indefinido</text>
+  <text x="420" y="761" text-anchor="middle" font-size="10" fill="#a32d2d">Sem resposta → comportamento?</text>
+
+  <!-- ══════════════════════════════════════════
+       RAMO 8 — REGRAS TRANSITÓRIAS (baixo-esquerda)
+       nó: x=280 w=260 → cx=410  y=858 h=52
+  ══════════════════════════════════════════ -->
+  <rect x="280" y="858" width="260" height="52" rx="9" fill="#faeeda" stroke="#ba7517" stroke-width="1.5"/>
+  <text x="410" y="879" text-anchor="middle" font-size="13" font-weight="700" fill="#854f0b">Regras transitórias</text>
+  <text x="410" y="897" text-anchor="middle" font-size="10" fill="#ba7517">PROC-042 v2</text>
+
+  <!-- sub A: Expiradas  x=100 w=260 → cx=230  y=976 h=44 -->
+  <rect x="100" y="976" width="260" height="44" rx="7" fill="#faeeda" stroke="#ba7517" stroke-width="1.2"/>
+  <text x="230" y="994" text-anchor="middle" font-size="12" font-weight="700" fill="#854f0b">Expiradas em dez/2023</text>
+  <text x="230" y="1010" text-anchor="middle" font-size="10" fill="#854f0b">Risco de confusão no modelo de IA</text>
+
+  <!-- ══════════════════════════════════════════
+       LEGENDA
+  ══════════════════════════════════════════ -->
+  <line x1="60" y1="1190" x2="1740" y2="1190" stroke="#ddd" stroke-width="1"/>
+
+  <rect x="80" y="1208" width="14" height="14" rx="3" fill="#fcebeb" stroke="#e24b4a" stroke-width="1.5"/>
+  <text x="102" y="1219" font-size="11" fill="#555">Risco / gap / contradição</text>
+
+  <rect x="320" y="1208" width="14" height="14" rx="3" fill="#faeeda" stroke="#ba7517" stroke-width="1.5"/>
+  <text x="342" y="1219" font-size="11" fill="#555">Atenção / ambiguidade</text>
+
+  <rect x="560" y="1208" width="14" height="14" rx="3" fill="#e1f5ee" stroke="#1d9e75" stroke-width="1.5"/>
+  <text x="582" y="1219" font-size="11" fill="#555">Boa cobertura documental</text>
+
+  <rect x="800" y="1208" width="14" height="14" rx="3" fill="#eeedfe" stroke="#8b7ed8" stroke-width="1.5"/>
+  <text x="822" y="1219" font-size="11" fill="#555">Tema central / estrutural</text>
+
+  <rect x="1040" y="1208" width="14" height="14" rx="3" fill="#faece7" stroke="#d85a30" stroke-width="1.5"/>
+  <text x="1062" y="1219" font-size="11" fill="#555">Documento informal</text>
+
+  <rect x="1280" y="1208" width="14" height="14" rx="3" fill="#2c2c2a" stroke="#2c2c2a"/>
+  <text x="1302" y="1219" font-size="11" fill="#555">Centro — escopo do projeto</text>
+
+</svg>
