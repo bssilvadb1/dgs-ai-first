@@ -1,0 +1,248 @@
+<svg width="100%" viewBox="0 0 680 3080" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Fluxo do atendente — Assistente de IA NovaTech</title>
+  <desc>Fluxo principal com erros integrados, fluxo de fallback e fluxo de feedback</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #2C2C2A; }
+      .th  { font-size: 14px; font-weight: 600; }
+      .ts  { font-size: 12px; fill: #5F5E5A; }
+      .teal-fill   { fill: #E1F5EE; stroke: #0F6E56; }
+      .gray-fill   { fill: #F1EFE8; stroke: #5F5E5A; }
+      .green-fill  { fill: #EAF3DE; stroke: #3B6D11; }
+      .amber-fill  { fill: #FAEEDA; stroke: #854F0B; }
+      .red-fill    { fill: #FCEBEB; stroke: #A32D2D; }
+      .coral-fill  { fill: #FAECE7; stroke: #993C1D; }
+      .teal-text   { fill: #085041; }
+      .gray-text   { fill: #444441; }
+      .green-text  { fill: #27500A; }
+      .amber-text  { fill: #633806; }
+      .red-text    { fill: #791F1F; }
+      .coral-text  { fill: #712B13; }
+      .teal-sub    { fill: #0F6E56; font-size: 12px; }
+      .gray-sub    { fill: #5F5E5A; font-size: 12px; }
+      .green-sub   { fill: #3B6D11; font-size: 12px; }
+      .amber-sub   { fill: #854F0B; font-size: 12px; }
+      .red-sub     { fill: #A32D2D; font-size: 12px; }
+      .coral-sub   { fill: #993C1D; font-size: 12px; }
+      .arr         { stroke: #888780; stroke-width: 1.5; fill: none; }
+      .err-line    { stroke: #E24B4A; stroke-width: 1; fill: none; stroke-dasharray: 5 3; }
+    </style>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SEÇÃO 1: FLUXO PRINCIPAL                   -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <rect x="40" y="24" width="600" height="36" rx="8" fill="none" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text class="th" x="340" y="48" text-anchor="middle">1. Fluxo principal — cenário feliz</text>
+
+  <rect class="gray-fill" x="215" y="88" width="250" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th gray-text" x="340" y="112" text-anchor="middle">Chamado recebido</text>
+  <text class="gray-sub" x="340" y="130" text-anchor="middle">Cliente apresenta dúvida ao atendente</text>
+
+  <line x1="340" y1="144" x2="340" y2="178" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="teal-fill" x="205" y="178" width="270" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th teal-text" x="340" y="202" text-anchor="middle">Atendente consulta a IA</text>
+  <text class="teal-sub" x="340" y="220" text-anchor="middle">Pergunta em linguagem natural no Teams</text>
+
+  <line x1="340" y1="234" x2="340" y2="268" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="teal-fill" x="205" y="268" width="270" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th teal-text" x="340" y="292" text-anchor="middle">IA processa a pergunta</text>
+  <text class="teal-sub" x="340" y="310" text-anchor="middle">Busca nos documentos oficiais</text>
+
+  <!-- Erro A: Base indisponível (saindo de "IA processa") -->
+  <path d="M475 296 L530 296 L530 432" class="err-line" marker-end="url(#arrow)"/>
+  <text class="ts" x="540" y="360" fill="#A32D2D">erro A</text>
+  <rect class="red-fill" x="478" y="432" width="162" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th red-text" x="559" y="456" text-anchor="middle">Base indisponível</text>
+  <text class="red-sub" x="559" y="474" text-anchor="middle">Sem resposta fabricada</text>
+  <line x1="559" y1="488" x2="559" y2="534" class="err-line" marker-end="url(#arrow)"/>
+  <rect class="coral-fill" x="478" y="534" width="162" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th coral-text" x="559" y="558" text-anchor="middle">Acessa fonte direta</text>
+  <text class="coral-sub" x="559" y="576" text-anchor="middle">ou escala supervisor</text>
+
+  <!-- Erro B: Fora do escopo (saindo de "IA processa") -->
+  <path d="M205 296 L150 296 L150 432" class="err-line" marker-end="url(#arrow)"/>
+  <text class="ts" x="54" y="360" fill="#A32D2D">erro B</text>
+  <rect class="red-fill" x="42" y="432" width="162" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th red-text" x="123" y="456" text-anchor="middle">Fora do escopo</text>
+  <text class="red-sub" x="123" y="474" text-anchor="middle">Tema fora da base</text>
+  <line x1="123" y1="488" x2="123" y2="534" class="err-line" marker-end="url(#arrow)"/>
+  <rect class="coral-fill" x="42" y="534" width="162" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th coral-text" x="123" y="558" text-anchor="middle">IA indica canal</text>
+  <text class="coral-sub" x="123" y="576" text-anchor="middle">adequado quando mapeado</text>
+
+  <line x1="340" y1="324" x2="340" y2="378" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="teal-fill" x="185" y="378" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th teal-text" x="340" y="402" text-anchor="middle">IA devolve resposta com fonte</text>
+  <text class="teal-sub" x="340" y="420" text-anchor="middle">Nome do doc., versão e área responsável</text>
+
+  <line x1="340" y1="434" x2="340" y2="468" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- Erro C: Documento sem versão recente (saindo de "IA devolve resposta") -->
+  <rect class="amber-fill" x="185" y="468" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th amber-text" x="340" y="492" text-anchor="middle">Doc. sem versão recente</text>
+  <text class="amber-sub" x="340" y="510" text-anchor="middle">Aviso de data + confirmação recomendada</text>
+
+  <line x1="340" y1="524" x2="340" y2="568" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="gray-fill" x="195" y="568" width="290" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th gray-text" x="340" y="592" text-anchor="middle">Atendente avalia a resposta</text>
+  <text class="gray-sub" x="340" y="610" text-anchor="middle">Verifica se responde à dúvida</text>
+
+  <line x1="340" y1="624" x2="340" y2="668" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="green-fill" x="195" y="668" width="290" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th green-text" x="340" y="692" text-anchor="middle">Usa a resposta no atendimento</text>
+  <text class="green-sub" x="340" y="710" text-anchor="middle">Chamado resolvido com sucesso</text>
+
+  <line x1="340" y1="724" x2="340" y2="768" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="gray-fill" x="195" y="768" width="290" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th gray-text" x="340" y="792" text-anchor="middle">Marca a resposta como útil</text>
+  <text class="gray-sub" x="340" y="810" text-anchor="middle">Alimenta histórico de interações</text>
+
+  <!-- Erro D: Erro identificado pós-atendimento (saindo de "Marca como útil") -->
+  <path d="M485 796 L560 796 L560 880 L560 924" class="err-line" marker-end="url(#arrow)"/>
+  <text class="ts" x="568" y="854" fill="#A32D2D">erro D</text>
+  <rect class="red-fill" x="478" y="924" width="162" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th red-text" x="559" y="948" text-anchor="middle">Erro pós-atendimento</text>
+  <text class="red-sub" x="559" y="966" text-anchor="middle">Resposta usada era incorreta</text>
+  <line x1="559" y1="980" x2="559" y2="1024" class="err-line" marker-end="url(#arrow)"/>
+  <rect class="coral-fill" x="478" y="1024" width="162" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th coral-text" x="559" y="1048" text-anchor="middle">Aciona feedback</text>
+  <text class="coral-sub" x="559" y="1066" text-anchor="middle">Pelo histórico da conversa</text>
+
+  <!-- Legenda -->
+  <rect x="40" y="868" width="420" height="36" rx="8" fill="none" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text x="240" y="892" text-anchor="middle" font-size="12" fill="#5F5E5A">Legenda</text>
+  <rect class="teal-fill"  x="48"  y="916" width="100" height="32" rx="6" stroke-width="0.5"/>
+  <text class="ts teal-sub"  x="98"  y="936" text-anchor="middle">Processo IA</text>
+  <rect class="gray-fill"  x="158" y="916" width="110" height="32" rx="6" stroke-width="0.5"/>
+  <text class="ts gray-sub"  x="213" y="936" text-anchor="middle">Ação atendente</text>
+  <rect class="green-fill" x="278" y="916" width="80"  height="32" rx="6" stroke-width="0.5"/>
+  <text class="ts green-sub" x="318" y="936" text-anchor="middle">Sucesso</text>
+  <rect class="amber-fill" x="368" y="916" width="80"  height="32" rx="6" stroke-width="0.5"/>
+  <text class="ts amber-sub" x="408" y="936" text-anchor="middle">Aviso</text>
+  <rect class="red-fill"   x="48"  y="958" width="80"  height="32" rx="6" stroke-width="0.5"/>
+  <text class="ts red-sub"   x="88"  y="978" text-anchor="middle">Erro</text>
+  <rect class="coral-fill" x="138" y="958" width="100" height="32" rx="6" stroke-width="0.5"/>
+  <text class="ts coral-sub" x="188" y="978" text-anchor="middle">Saída de erro</text>
+  <line x1="248" y1="978" x2="308" y2="978" class="err-line" marker-end="url(#arrow)"/>
+  <text class="ts" x="318" y="978" fill="#5F5E5A">Caminho de erro</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SEÇÃO 2: FALLBACK (offset y=1110)          -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <rect x="40" y="1110" width="600" height="36" rx="8" fill="none" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text class="th" x="340" y="1134" text-anchor="middle">2. Fluxo de fallback</text>
+
+  <text class="ts" x="340" y="1178" text-anchor="middle">2a — IA não encontra resposta</text>
+
+  <rect class="amber-fill" x="185" y="1194" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th amber-text" x="340" y="1218" text-anchor="middle">IA informa ausência de resultado</text>
+  <text class="amber-sub" x="340" y="1236" text-anchor="middle">Nenhuma informação encontrada na base</text>
+
+  <line x1="340" y1="1250" x2="340" y2="1294" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="gray-fill" x="185" y="1294" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th gray-text" x="340" y="1318" text-anchor="middle">Atendente decide como prosseguir</text>
+  <text class="gray-sub" x="340" y="1336" text-anchor="middle">Reformular pergunta ou escalar</text>
+
+  <path d="M185 1322 L110 1322 L110 1386" fill="none" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+  <rect class="teal-fill" x="44" y="1386" width="132" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th teal-text" x="110" y="1410" text-anchor="middle">Reformula</text>
+  <text class="teal-sub" x="110" y="1428" text-anchor="middle">Retorna ao início</text>
+
+  <path d="M495 1322 L570 1322 L570 1386" fill="none" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+  <rect class="coral-fill" x="504" y="1386" width="132" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th coral-text" x="570" y="1410" text-anchor="middle">Escala</text>
+  <text class="coral-sub" x="570" y="1428" text-anchor="middle">Chat com supervisor</text>
+
+  <line x1="60" y1="1476" x2="620" y2="1476" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <text class="ts" x="340" y="1504" text-anchor="middle">2b — Resposta confusa ou incompleta</text>
+
+  <rect class="amber-fill" x="185" y="1520" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th amber-text" x="340" y="1544" text-anchor="middle">Atendente sinaliza resposta confusa</text>
+  <text class="amber-sub" x="340" y="1562" text-anchor="middle">Informa à IA que não ficou claro</text>
+
+  <line x1="340" y1="1576" x2="340" y2="1620" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="teal-fill" x="175" y="1620" width="330" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th teal-text" x="340" y="1644" text-anchor="middle">IA reapresenta com trecho original</text>
+  <text class="teal-sub" x="340" y="1662" text-anchor="middle">Título, seção e data de atualização</text>
+
+  <line x1="340" y1="1676" x2="340" y2="1720" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="gray-fill" x="185" y="1720" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th gray-text" x="340" y="1744" text-anchor="middle">Atendente avalia nova apresentação</text>
+  <text class="gray-sub" x="340" y="1762" text-anchor="middle">Resolve ou escala para supervisor</text>
+
+  <line x1="60" y1="1814" x2="620" y2="1814" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <text class="ts" x="340" y="1842" text-anchor="middle">2c — Informações conflitantes nos documentos</text>
+
+  <rect class="amber-fill" x="175" y="1864" width="330" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th amber-text" x="340" y="1888" text-anchor="middle">IA detecta conflito entre documentos</text>
+  <text class="amber-sub" x="340" y="1906" text-anchor="middle">Não escolhe silenciosamente uma versão</text>
+
+  <line x1="340" y1="1920" x2="340" y2="1964" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="teal-fill" x="165" y="1964" width="350" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th teal-text" x="340" y="1988" text-anchor="middle">IA exibe as duas versões lado a lado</text>
+  <text class="teal-sub" x="340" y="2006" text-anchor="middle">Fontes, datas e hierarquia de área</text>
+
+  <line x1="340" y1="2020" x2="340" y2="2064" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="teal-fill" x="165" y="2064" width="350" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th teal-text" x="340" y="2088" text-anchor="middle">IA sugere qual versão tem precedência</text>
+  <text class="teal-sub" x="340" y="2106" text-anchor="middle">Mais recente ou área responsável</text>
+
+  <line x1="340" y1="2120" x2="340" y2="2164" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="coral-fill" x="185" y="2164" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th coral-text" x="340" y="2188" text-anchor="middle">Recomenda confirmar com supervisor</text>
+  <text class="coral-sub" x="340" y="2206" text-anchor="middle">Atalho de chat no Teams disponível</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SEÇÃO 3: FEEDBACK (offset y=2280)          -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <rect x="40" y="2280" width="600" height="36" rx="8" fill="none" stroke="#B4B2A9" stroke-width="0.5"/>
+  <text class="th" x="340" y="2304" text-anchor="middle">3. Fluxo de feedback</text>
+
+  <rect class="coral-fill" x="175" y="2348" width="330" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th coral-text" x="340" y="2372" text-anchor="middle">Atendente sinaliza problema na resposta</text>
+  <text class="coral-sub" x="340" y="2390" text-anchor="middle">Disponível em todas as respostas da IA</text>
+
+  <line x1="340" y1="2404" x2="340" y2="2448" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="gray-fill" x="185" y="2448" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th gray-text" x="340" y="2472" text-anchor="middle">Escolhe o tipo de problema</text>
+  <text class="gray-sub" x="340" y="2490" text-anchor="middle">Errada, desatualizada, incompleta ou outro</text>
+
+  <line x1="340" y1="2504" x2="340" y2="2548" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="gray-fill" x="185" y="2548" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th gray-text" x="340" y="2572" text-anchor="middle">Adiciona observação (opcional)</text>
+  <text class="gray-sub" x="340" y="2590" text-anchor="middle">Texto livre com contexto da correção</text>
+
+  <line x1="340" y1="2604" x2="340" y2="2648" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="teal-fill" x="165" y="2648" width="350" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th teal-text" x="340" y="2672" text-anchor="middle">IA registra a sinalização</text>
+  <text class="teal-sub" x="340" y="2690" text-anchor="middle">Pergunta + resposta + documento de origem</text>
+
+  <line x1="340" y1="2704" x2="340" y2="2748" class="arr" marker-end="url(#arrow)"/>
+
+  <rect class="green-fill" x="185" y="2748" width="310" height="56" rx="8" stroke-width="0.5"/>
+  <text class="th green-text" x="340" y="2772" text-anchor="middle">IA confirma envio para revisão</text>
+  <text class="green-sub" x="340" y="2790" text-anchor="middle">Doc. permanece ativo até revisão concluída</text>
+
+</svg>
